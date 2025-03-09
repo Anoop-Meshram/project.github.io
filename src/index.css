@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-white;
+  }
+  
+  /* Gradient text effect */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200 ease-in-out;
+  }
+  
+  .btn-primary {
+    @apply bg-primary hover:bg-opacity-90 text-white;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary hover:bg-opacity-90 text-white;
+  }
+  
+  .btn-accent {
+    @apply bg-accent hover:bg-opacity-90 text-white;
+  }
+  
+  .array-bar {
+    @apply rounded-t-md transition-all duration-150 ease-in-out;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .shadow-glow-green {
+    box-shadow: 0 0 8px 2px rgba(72, 187, 120, 0.5);
+  }
+  
+  .shadow-glow-yellow {
+    box-shadow: 0 0 8px 2px rgba(236, 201, 75, 0.5);
+  }
+  
+  .shadow-glow-pink {
+    box-shadow: 0 0 8px 2px rgba(237, 100, 166, 0.5);
+  }
+  
+  .shadow-glow-blue {
+    box-shadow: 0 0 8px 2px rgba(76, 81, 191, 0.5);
+  }
+  
+  /* Landing page specific styles */
+  .landing-card {
+    @apply bg-surface p-6 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl;
+  }
+  
+  .landing-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .landing-gradient-btn {
+    @apply rounded-full bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white transition-all duration-500;
+  }
+} 
