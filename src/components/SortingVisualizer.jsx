@@ -46,9 +46,10 @@ const SortingVisualizer = ({
     return array.length > 0 ? Math.max(...array) : 100;
   }, [array]);
   
-  // Calculate the width of each bar based on the array size
+  // Calculate the width of each bar based on the array size and container width
   const barWidth = useMemo(() => {
-    const containerWidth = 1000; // Approximate container width in pixels
+    // Use a dynamic container width based on viewport
+    const containerWidth = Math.min(window.innerWidth - 32, 1200); // Max width of 1200px, with 16px padding on each side
     const margin = 2; // Margin between bars in pixels
     return Math.max(2, Math.floor((containerWidth - margin * arraySize) / arraySize));
   }, [arraySize]);
@@ -59,10 +60,10 @@ const SortingVisualizer = ({
   }, [algorithm]);
   
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex flex-wrap justify-center gap-4 mb-8">
+    <div className="flex flex-col items-center w-full px-4">
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-4 sm:mb-8 w-full">
         <motion.button
-          className="btn btn-primary"
+          className="btn btn-primary text-sm sm:text-base px-3 py-1.5 sm:px-4 sm:py-2"
           onClick={resetArray}
           disabled={isSorting}
           whileHover={{ scale: 1.05 }}
@@ -73,7 +74,7 @@ const SortingVisualizer = ({
         
         {!isSorting && !isSorted && (
           <motion.button
-            className="btn btn-accent"
+            className="btn btn-accent text-sm sm:text-base px-3 py-1.5 sm:px-4 sm:py-2"
             onClick={startSorting}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -85,7 +86,7 @@ const SortingVisualizer = ({
         {isSorting && (
           <>
             <motion.button
-              className="btn btn-secondary"
+              className="btn btn-secondary text-sm sm:text-base px-3 py-1.5 sm:px-4 sm:py-2"
               onClick={pauseSorting}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -94,7 +95,7 @@ const SortingVisualizer = ({
             </motion.button>
             
             <motion.button
-              className="btn btn-accent"
+              className="btn btn-accent text-sm sm:text-base px-3 py-1.5 sm:px-4 sm:py-2"
               onClick={continueSorting}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -105,7 +106,7 @@ const SortingVisualizer = ({
         )}
         
         <motion.button
-          className={`btn ${showInfo ? 'btn-secondary' : 'bg-gray-700 hover:bg-gray-600'}`}
+          className={`btn text-sm sm:text-base px-3 py-1.5 sm:px-4 sm:py-2 ${showInfo ? 'btn-secondary' : 'bg-gray-700 hover:bg-gray-600'}`}
           onClick={() => setShowInfo(!showInfo)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -149,7 +150,7 @@ const SortingVisualizer = ({
       </div>
       
       <motion.div 
-        className="w-full h-96 bg-surface rounded-lg p-4 flex items-end justify-center relative overflow-hidden"
+        className="w-full h-[300px] sm:h-[400px] md:h-[500px] bg-surface rounded-lg p-2 sm:p-4 flex items-end justify-center relative overflow-hidden"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -162,7 +163,7 @@ const SortingVisualizer = ({
               className="w-full h-px bg-gray-700 opacity-30"
               style={{ bottom: `${percent}%` }}
             >
-              <span className="absolute -left-6 -translate-y-1/2 text-xs text-gray-500">
+              <span className="absolute -left-6 -translate-y-1/2 text-[10px] sm:text-xs text-gray-500">
                 {percent}%
               </span>
             </div>
@@ -200,9 +201,9 @@ const SortingVisualizer = ({
                 style={{
                   height: `${height}%`,
                   width: `${barWidth}px`,
-                  marginLeft: '2px',
-                  marginRight: '2px',
-                  backgroundColor: !barColor ? algorithmColor : undefined, // Use algorithm color for unsorted bars
+                  marginLeft: '1px',
+                  marginRight: '1px',
+                  backgroundColor: !barColor ? algorithmColor : undefined,
                 }}
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ 
@@ -259,25 +260,25 @@ const SortingVisualizer = ({
         </AnimatePresence>
       </motion.div>
       
-      <div className="mt-6 flex flex-wrap justify-center gap-4">
+      <div className="mt-4 sm:mt-6 flex flex-wrap justify-center gap-2 sm:gap-4">
         <div className="flex items-center">
           <div 
-            className="w-4 h-4 rounded-sm mr-2" 
+            className="w-3 h-3 sm:w-4 sm:h-4 rounded-sm mr-2" 
             style={{ backgroundColor: algorithmColor }}
           ></div>
-          <span className="text-sm">Unsorted</span>
+          <span className="text-xs sm:text-sm">Unsorted</span>
         </div>
         <div className="flex items-center">
-          <div className="w-4 h-4 bg-warning rounded-sm mr-2"></div>
-          <span className="text-sm">Comparing</span>
+          <div className="w-3 h-3 sm:w-4 sm:h-4 bg-warning rounded-sm mr-2"></div>
+          <span className="text-xs sm:text-sm">Comparing</span>
         </div>
         <div className="flex items-center">
-          <div className="w-4 h-4 bg-accent rounded-sm mr-2"></div>
-          <span className="text-sm">Swapping</span>
+          <div className="w-3 h-3 sm:w-4 sm:h-4 bg-accent rounded-sm mr-2"></div>
+          <span className="text-xs sm:text-sm">Swapping</span>
         </div>
         <div className="flex items-center">
-          <div className="w-4 h-4 bg-success rounded-sm mr-2"></div>
-          <span className="text-sm">Sorted</span>
+          <div className="w-3 h-3 sm:w-4 sm:h-4 bg-success rounded-sm mr-2"></div>
+          <span className="text-xs sm:text-sm">Sorted</span>
         </div>
       </div>
       
@@ -285,12 +286,12 @@ const SortingVisualizer = ({
       
       {/* Algorithm stats */}
       <motion.div 
-        className="mt-6 w-full max-w-2xl flex justify-between text-sm text-gray-400 px-4"
+        className="mt-4 sm:mt-6 w-full max-w-2xl flex flex-col sm:flex-row justify-between text-xs sm:text-sm text-gray-400 px-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        <div>
+        <div className="text-center sm:text-left mb-2 sm:mb-0">
           <span 
             className="font-medium text-white"
             style={{ color: algorithmColor }}
@@ -298,8 +299,8 @@ const SortingVisualizer = ({
             {algorithmsInfo[algorithm]?.name}
           </span>
         </div>
-        <div>
-          Size: <span className="text-primary">{array.length}</span> |  
+        <div className="text-center sm:text-right">
+          Size: <span className="text-primary">{array.length}</span> | 
           Speed: <span className="text-secondary">{speed}%</span>
         </div>
       </motion.div>

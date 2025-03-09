@@ -33,16 +33,16 @@ const Header = ({
   
   return (
     <header className="bg-surface py-4 shadow-md sticky top-0 z-20">
-      <div className="container-custom">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="container-custom px-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <motion.div
-            className="flex items-center"
+            className="flex items-center justify-center sm:justify-start"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
             <motion.h1 
-              className="text-2xl font-bold text-white mr-2"
+              className="text-xl sm:text-2xl font-bold text-white mr-2"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -79,18 +79,18 @@ const Header = ({
           </motion.div>
           
           <motion.div 
-            className="flex flex-wrap gap-6"
+            className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="flex flex-col">
+            <div className="flex flex-col w-full sm:w-auto">
               <label htmlFor="algorithm" className="text-sm font-medium mb-1 text-gray-300">Algorithm</label>
               <select
                 id="algorithm"
                 value={algorithm}
                 onChange={(e) => setAlgorithm(e.target.value)}
-                className="bg-background border border-gray-700 rounded-md px-3 py-1.5 text-sm transition-all hover:border-primary focus:border-primary focus:ring-1 focus:ring-primary outline-none"
+                className="w-full sm:w-auto bg-background border border-gray-700 rounded-md px-3 py-1.5 text-sm transition-all hover:border-primary focus:border-primary focus:ring-1 focus:ring-primary outline-none"
               >
                 <option value="bubble">Bubble Sort</option>
                 <option value="insertion">Insertion Sort</option>
@@ -112,7 +112,7 @@ const Header = ({
               </motion.div>
             </div>
             
-            <div className="flex flex-col">
+            <div className="flex flex-col w-full sm:w-auto">
               <label htmlFor="arraySize" className="text-sm font-medium mb-1 text-gray-300">Array Size</label>
               <div className="flex items-center gap-2">
                 <input
@@ -130,7 +130,7 @@ const Header = ({
               </div>
             </div>
             
-            <div className="flex flex-col">
+            <div className="flex flex-col w-full sm:w-auto">
               <label htmlFor="speed" className="text-sm font-medium mb-1 text-gray-300">Speed</label>
               <div className="flex items-center gap-2">
                 <input
