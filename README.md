@@ -2,11 +2,11 @@
 
 A beautiful, interactive web application that visualizes various sorting algorithms in real-time. Built with React, JavaScript, Framer Motion for animations, and Tailwind CSS for styling.
 
-![Sorting Visualizer Demo](./src/assets/demo.png)
+![Sorting Visualizer Demo](./src/assets/demo.mp4)
 
 ## 🚀 Live Demo
 
-[View Live Demo](https://your-demo-url.com)
+[View Live Demo]([https://sorting-visualizer-blue-seven.vercel.app/])
 
 ## ✨ Features
 
