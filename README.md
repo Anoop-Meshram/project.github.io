@@ -115,49 +115,6 @@ sorting-visualizer/
 - **Space Complexity**: O(1)
 - **Description**: Builds a max heap from the array and repeatedly extracts the maximum element.
 
-## 🧠 Interview Questions and Answers
-
-### 1. What was your motivation for building this project?
-
-**Answer**: I built this project to visualize sorting algorithms in action, which helps in understanding their behavior and performance characteristics. Visualizing these algorithms makes abstract concepts more concrete and accessible, both for my own learning and for educational purposes.
-
-### 2. How did you implement the animations for the sorting algorithms?
-
-**Answer**: I used Framer Motion for animations and created a custom hook (`useSorting`) that manages the sorting state and animations. Each sorting algorithm generates a sequence of steps (comparisons, swaps, and marking elements as sorted), which are then played back as animations with controlled timing.
-
-### 3. How do you ensure the visualizations accurately represent the algorithms?
-
-**Answer**: Each algorithm implementation carefully tracks every comparison and swap operation, creating a detailed log of steps. These steps are then visualized in sequence, ensuring that what you see is exactly how the algorithm works. I've also added color coding (comparing, swapping, sorted) to make the process more understandable.
-
-### 4. What were the main challenges in implementing this project?
-
-**Answer**: 
-- Creating accurate visualizations that truly represent how each algorithm works
-- Managing the animation state and timing, especially for pause/continue functionality
-- Optimizing performance for larger arrays and faster animation speeds
-- Designing a responsive UI that works well across different screen sizes
-
-### 5. How would you improve this project given more time?
-
-**Answer**:
-- Add more sorting algorithms (Radix Sort, Counting Sort, etc.)
-- Implement different array distributions (nearly sorted, reversed, few unique values)
-- Add algorithm complexity information and real-time performance metrics
-- Create a step-by-step mode with explanations of what's happening at each step
-- Add sound visualization to enhance the experience
-
-### 6. How does the time complexity of these algorithms compare in practice?
-
-**Answer**: The visualizer demonstrates that for small arrays, the difference between O(n²) and O(n log n) algorithms isn't very noticeable. However, as the array size increases, you can clearly see that Merge Sort, Quick Sort, and Heap Sort outperform Bubble Sort, Insertion Sort, and Selection Sort. This aligns with their theoretical time complexities.
-
-### 7. What did you learn from building this project?
-
-**Answer**: Building this project deepened my understanding of sorting algorithms and their behavior. I also improved my skills in React, JavaScript, and animation techniques. The project taught me how to break down complex algorithms into visualizable steps and how to manage complex state in a React application.
-
-### 8. How did you decide on the tech stack for this project?
-
-**Answer**: I chose React for its component-based architecture, which makes it easy to build interactive UIs. JavaScript provides the flexibility needed for implementing the sorting algorithms. Framer Motion provides powerful animation capabilities that are perfect for visualizing sorting steps. Tailwind CSS enables rapid UI development with a consistent design system.
-
 ## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
