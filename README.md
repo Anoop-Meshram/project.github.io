@@ -63,7 +63,7 @@ sorting-visualizer/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/sorting-visualizer.git
+   git clone https://github.com/sakshinirmal/sorting-visualizer.git
    cd sorting-visualizer
    ```
 
